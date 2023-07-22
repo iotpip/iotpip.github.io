@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>It's okay to pee in pool</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+iframe {
+    border: none;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 75%;
+}
+
+#chat {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+}
+</style>
+<script>
+    window.addEventListener("load", (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("video").src = "https://www.youtube.com/embed/" + urlParams.get("v");
+        document.getElementById("chat").src = "https://www.twitch.tv/embed/" + urlParams.get("c")
+            + "/chat?darkpopout&parent=localhost&parent=iotpip.github.io";
+    });
+</script>
+</head>
+<body>
+    <iframe id="video"></iframe>
+    <iframe id="chat"></iframe>
+</body>
+</html>
