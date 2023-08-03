@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+<title>It's okay to pee in pool</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #18181b;
+}
+
+iframe, .gutter {
+    border: none;
+    width: 100%;
+}
+
+.gutter {
+    background-color: #222;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+    cursor: row-resize;
+}
+</style>
+<script>
+    window.addEventListener("load", (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("video").src = "https://www.youtube.com/embed/" + urlParams.get("v");
+        document.getElementById("chat").src = "https://www.twitch.tv/embed/" + urlParams.get("c")
+            + "/chat?darkpopout&parent=localhost&parent=iotpip.github.io";
+
+        Split(['#video', '#chat'], {
+            sizes: [30, 70],
+            direction: 'vertical',
+            gutterSize: 30,
+        });
+    });
+</script>
+</head>
+<body>
+    <iframe id="video"></iframe>
+    <iframe id="chat"></iframe>
+</body>
+</html>
